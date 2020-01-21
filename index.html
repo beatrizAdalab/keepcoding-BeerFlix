@@ -1,17 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>BeerFlix</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
-    <!-- styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/src/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BeerFlix</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+  <!-- styles -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="/src/css/styles.css">
 </head>
+
 <body>
-Hello Word   
+  <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+    <h1 class="navbar-brand ">BeerFlix</h1>
+  </nav>
+  <header>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Fluid jumbotron</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- form -->
+    <section id="formSection">
+      <div class="container">
+        <form>
+          <div class="form-group">
+            <label for="inputAddress">What beer are you thinking?</label>
+            <input type="text" class="form-control" id="" placeholder="">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Since when?</label>
+              <input type="date" class="form-control" id="inputEmail4">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Even when?</label>
+              <input type="date" class="form-control" id="inputPassword4">
+            </div>
+          </div>
+        </form>
+    </section>
+    <!-- form end-->
+
+    </section id="detailSection">
+    <section id="detailSection" class="detail-section">
+    </section>
+    <!-- loader -->
+    <div id="loader" class="loader-container hide">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- Loader end -->
+  </main>
+  <footer>
+
+  </footer>
+  <!-- script -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script type="module" src="/src/js/routes.js"></script>
+  <!-- script end-->
 </body>
+
 </html>
