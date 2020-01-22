@@ -1,0 +1,22 @@
+{
+  "name": "beerflix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beatrizAdalab/keepcoding-BeerFlix.git"
+  },
+  "author": "beatriz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beatrizAdalab/keepcoding-BeerFlix/issues"
+  },
+  "homepage": "https://github.com/beatrizAdalab/keepcoding-BeerFlix#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
