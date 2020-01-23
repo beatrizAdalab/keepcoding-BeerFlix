@@ -27,10 +27,27 @@ const templateBeer = beer => {
     `;   
 }
 
-const renderBeers = (element, items) => {
+
+const validateDateBeers = (dateBeer, dateInputs)=>{
+    const yearBeer = parseInt(dateBeer.firstBrewed.slice(-4));
+    const monthBeer = parseInt(dateBeer.firstBrewed.slice(0, 2));
+    const { yearStart, yearEnd, monthStart, monthEnd } = dateInputs;
+
+    yearBeer < yearStart || yearBeer > yearEnd ? false: monthBeer < monthStart || monthBeer > monthEnd ? false : true 
+}
+
+const renderBeers = (element, items, dateInputs) => {
     //se mapea el array de beers 
     const htmlBeers = items.map(item =>{
-        return templateBeer(item)
+        //la fecha está entre start y end?
+
+        if(dateInputs){
+            validateDateBeers(item, dateInputs)? templateBeer(item): false;
+        }else {
+            return templateBeer(item)
+        }
+
+        
     }).join('');
 
      //se crea html final
@@ -40,7 +57,9 @@ const renderBeers = (element, items) => {
     </div>`;
 }
 
-export const renderHomeBeers = async (text)=>{
+
+
+export const renderHomeBeers = async (text, dateObj)=>{
     const containerBeers = document.querySelector('.container-beers');
     containerBeers.innerHTML = `loading...`;
 
@@ -50,7 +69,7 @@ export const renderHomeBeers = async (text)=>{
         
         console.log(beers)
 
-        renderBeers(containerBeers, beers)
+        renderBeers(containerBeers, beers, dateObj)
     } catch (err) {
         console.log(err)
     }

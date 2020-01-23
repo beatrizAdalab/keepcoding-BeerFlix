@@ -13,41 +13,58 @@ const searchInputFinish = document.querySelector('#input-latest-date');
 
 
 
-const resetForm = ()=>{
-    searchInputText.value=''; 
-    searchInputStarting.value='';
-    searchInputFinish.value='';
+const resetForm = () => {
+    searchInputText.value = '';
+    searchInputStarting.value = '';
+    searchInputFinish.value = '';
 }
 
 
 searchInputText.addEventListener('keydown', evt => {
     evt.target.classList.remove('is-invalid');
-} )
+});
 
-const validatedDate= (dateStart, dateEnd)=>{
-    const yearStart = parseInt(dateStart.value.slice(0,4));
-    const yearEnd = parseInt(dateEnd.value.slice(0,4));
-    const monthStart = parseInt(dateStart.value.slice(-2));
-    const monthEnd = parseInt(dateEnd.value.slice(-2));
+const getDates = (dateStart, dateEnd) => {
+    return {
+        yearStart: parseInt(dateStart.value.slice(0, 4)),
+        yearEnd: parseInt(dateEnd.value.slice(0, 4)),
+        monthStart: parseInt(dateStart.value.slice(-2)),
+        monthEnd: parseInt(dateEnd.value.slice(-2)),
+    }
+}
 
-   return yearEnd < yearStart? false: monthStart > monthEnd? false: true;
+
+const validatedDate = (date) => {
+    const { yearStart, yearEnd, monthStart, monthEnd } = date;
+
+    if (yearEnd >= yearStart) {
+        if (monthStart < monthEnd) {
+            return true
+        } else {
+            return false
+        }
+    }else {
+        return false
+    }
 }
 
 
 searchForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    
+    const date = getDates(searchInputStarting, searchInputFinish);
+
     if (!searchInputText.validity.valid) {
-        searchInputText.classList.add('is-invalid') 
-      } else if(
-          !validatedDate(searchInputStarting, searchInputFinish)){
-            return alert('Upss! the last date must be greater than the start date')
-      } else {
+        searchInputText.classList.add('is-invalid')
+    }
+    else if (!validatedDate(date)) {
+        return alert('Upss! the last date must be greater than the start date')
+    }
+    else {
         // Pintar shows con el filtro!
-        renderHomeBeers(searchInputText.value);
+        renderHomeBeers(searchInputText.value, date);
         // almacenar en localstorage o cookie storage
         setItem(INPUT_STORAGE_ID, searchInputText.value);
         resetForm()
-      }
+    }
 });
 
