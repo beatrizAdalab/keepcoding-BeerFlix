@@ -2,6 +2,8 @@ import api from './api.js';
 
 const {getBeers} = api();
 
+const test = 'test'
+
 const templateBeer = beer => {
         //created template html
     return `
@@ -39,23 +41,19 @@ const renderBeers = (element, items) => {
 }
 
 export const renderHomeBeers = async (text)=>{
-    //activa loading
     const containerBeers = document.querySelector('.container-beers');
-
     containerBeers.innerHTML = `loading...`;
 
     //se introduce dentro del elemento, en este caso card-deck
     try {
         const beers = await getBeers(text);
         
-
         console.log(beers)
 
         renderBeers(containerBeers, beers)
     } catch (err) {
         console.log(err)
     }
-    // esconde loader
 }
 
 export default renderHomeBeers;

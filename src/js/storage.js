@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 
 const lStorage = {
     setItem: (key, value) => localStorage.setItem(key, value),

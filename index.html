@@ -19,12 +19,6 @@
     <h1 class="navbar-brand ">BeerFlix</h1>
   </nav>
   <header>
-    <!-- <div class="jumbotron jumbotron-fluid d-flex align-items-center">
-      <div class="container">
-        <h1 class="display-4">Fluid jumbotron</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-      </div>
-    </div> -->
     <div class="d-flex align-items-center">
       <picture>
         <source srcset="/src/images/beer-home-laptop.jpg" media="(min-width: 1280px)">
@@ -39,17 +33,18 @@
       <div class="container py-4">
         <form id="search-form" novalidate>
           <div class="form-group">
-            <label for="input-beer">What beer are you thinking?</label>
-            <input type="text" class="form-control" id="input-beer" required placeholder="search your beer">
+            <label for="input-text-beer" class="mb-1">What beer are you thinking? <span class="text-muted"> *required</span></label>
+            
+            <input type="text" class="form-control" id="input-text-beer" required placeholder="search your beer">
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="input-starting-date">Starting date</label>
-              <input type="date" class="form-control" id="input-starting-date">
+              <label for="input-starting-date" class="mb-1">Starting date</label>
+              <input type="month" class="form-control" id="input-starting-date">
             </div>
             <div class="form-group col-md-6">
-              <label for="input-latest-date">Latest date</label>
-              <input type="date" class="form-control" id="input-latest-date">
+              <label for="input-latest-date" class="mb-1">Latest date</label>
+              <input type="month" class="form-control" id="input-latest-date">
             </div>
           </div>
           <div class="d-flex justify-content-center py-4">
@@ -59,49 +54,9 @@
     </section>
     <!-- card-->
     <section id="detailSection" class="bg-light">
-      <div class="container container-beers py-4 ">
-        <!-- <div class="card-deck">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-        </div> -->
+      <div class="container container-beers py-4 ">  
       </div>
     </section>
-    <!-- loader -->
-    <div id="loader" class="loader-container hide">
-      <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-    <!-- Loader end -->
   </main>
   <footer>
 

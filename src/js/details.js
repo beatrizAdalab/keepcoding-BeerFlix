@@ -12,3 +12,5 @@
 // const template comment
 
 //
+
+console.log("detalle")
