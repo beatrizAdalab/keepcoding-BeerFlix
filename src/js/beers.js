@@ -15,7 +15,7 @@ const templateBeer = beer => {
                 
                     <div class="col-md-9">
                         <div class="card-body">
-                            <h5 class="card-title border-bottom pb-2">${beer.name}</h5>
+                            <h5 class="card-title border-bottom color-primary-dark pb-2">${beer.name}</h5>
                             <p class="card-text">${beer.description}</p>
                         </div>
                     </div>
@@ -25,7 +25,7 @@ const templateBeer = beer => {
                     <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-thumbs-up"></i> ${beer.likes} </i></small></p>
                     <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-comment"></i> ${beer.comments.length} </small></p>
                 </div>
-                <a href="/detail/${beer._id}" class="card-link">More information</a>
+                <a href="/detail/${beer.beerId}" class="card-link color-secondary">More information</a>
               </div>
             </div>
     </div>

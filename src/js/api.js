@@ -68,6 +68,27 @@ const api = (apiURL = 'https://beerflix-api.herokuapp.com/api/v1') => {
                 console.error(e);
                 throw e;
             }
+        },
+        addLike: async (id) =>{
+            try {
+                const URL = `${apiURL}/beers/${id}/like`;
+                const response = await fetch(URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                console.log(response)
+                if (!response.ok) {
+                    throw new Error(`Error create comment`);
+                }
+                const like = await response.json();
+                return like;
+            } catch (e) {
+                console.error(e);
+                throw e;
+            }
         }
     }
 }
