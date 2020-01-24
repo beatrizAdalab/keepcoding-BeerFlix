@@ -1,4 +1,4 @@
-//import api
+import {removeForm , addForm} from './ui.js';
 //import render
 
 //const template section detalle
@@ -13,4 +13,7 @@
 
 //
 
-console.log("detalle")
+
+const hola = "e"
+
+export default hola;

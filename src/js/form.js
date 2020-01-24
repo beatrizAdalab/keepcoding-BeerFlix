@@ -34,19 +34,19 @@ const getDates = (dateStart, dateEnd) => {
 }
 
 
-const validatedDate = (date) => {
-    const { yearStart, yearEnd, monthStart, monthEnd } = date;
+// const validatedDate = (date) => {
+//     const { yearStart, yearEnd, monthStart, monthEnd } = date;
 
-    if (yearEnd >= yearStart) {
-        if (monthStart < monthEnd) {
-            return true
-        } else {
-            return false
-        }
-    }else {
-        return false
-    }
-}
+//     if (yearEnd >= yearStart) {
+//         if (monthStart < monthEnd) {
+//             return true
+//         } else {
+//             return false
+//         }
+//     }else {
+//         return false
+//     }
+// }
 
 
 searchForm.addEventListener('submit', evt => {
@@ -56,12 +56,12 @@ searchForm.addEventListener('submit', evt => {
     if (!searchInputText.validity.valid) {
         searchInputText.classList.add('is-invalid')
     }
-    else if (!validatedDate(date)) {
-        return alert('Upss! the last date must be greater than the start date')
-    }
+    // else if (!validatedDate(date)) {
+    //     return alert('Upss! the last date must be greater than the start date')
+    // }
     else {
         // Pintar shows con el filtro!
-        renderHomeBeers(searchInputText.value, date);
+        renderHomeBeers(searchInputText.value);
         // almacenar en localstorage o cookie storage
         setItem(INPUT_STORAGE_ID, searchInputText.value);
         resetForm()
