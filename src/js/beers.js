@@ -2,29 +2,30 @@ import api from './api.js';
 
 const {getBeers} = api();
 
-const test = 'test'
-
 const templateBeer = beer => {
-        //created template html  
     return `
     <div class="col mb-4">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3" >
                 <div class="row no-gutters">
                     <div class="col-md-3">
-                        <img src="..." class="card-img" alt="...">
+                        <div class="card-container-img d-flex align-items-center justify-content-center">
+                            <img src=${beer.image} class="card-img" alt="${beer.name}">
+                        </div>
                     </div>
                 
                     <div class="col-md-9">
                         <div class="card-body">
-                            <h5 class="card-title">${beer.name}</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title border-bottom pb-2">${beer.name}</h5>
+                            <p class="card-text">${beer.description}</p>
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
-                <small class="text-muted">Likes</small>
-                <small class="text-muted">Comments</small>
-                <a href="/detail/${beer._id} class="card-link">Card link</a>
+                <div class="card-footer d-flex justify-content-between">
+                <div class="d-flex">
+                    <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-thumbs-up"></i> ${beer.likes} </i></small></p>
+                    <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-comment"></i> ${beer.comments.length} </small></p>
+                </div>
+                <a href="/detail/${beer._id}" class="card-link">More information</a>
               </div>
             </div>
     </div>
@@ -56,10 +57,9 @@ const renderBeers = (element, items) => {
         
     }).join('');
 
-     //se crea html final
     element.innerHTML = `
     <div class="container container-beers py-4 ">  
-        <div class="row row-cols-1 row-cols-md-2">
+        <div class="row row-cols-1 row-cols-lg-2">
             ${htmlBeers}
         </div>
       </div>
@@ -75,9 +75,7 @@ export const renderHomeBeers = async (text)=>{
     //se introduce dentro del elemento, en este caso card-deck
     try {
         const beers = await getBeers(text);
-        
         console.log(beers)
-
         renderBeers(containerBeers, beers)
     } catch (err) {
         console.log(err)

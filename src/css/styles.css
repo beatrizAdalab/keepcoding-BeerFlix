@@ -2,7 +2,9 @@
 @import "reset.css";
 @import "detail.css";
 @import "mainSection.css";
-@import "jumbotron.css";
+@import "navbar.css";
+@import "buttons.css";
+@import "card.css";
 
 
 
@@ -17,6 +19,18 @@ picture{
 .hidden {
     display: none !important;
   }
+
+  .max-length-etc{
+    white-space: nowrap; 
+    width: 50px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+  }
+
+/* COLORS */
+.bg-color-primary{
+    background-color: var(--main-color);
+}
 
 
  
