@@ -10,18 +10,26 @@ const add = (el) => {
 
   const form = document.querySelector('#formSection');
   const imageHome = document.querySelector('.image-home');
-  const commentSection = document.querySelector('#commentSection');
+  const detailBeer = document.querySelector('#detailBeer');
+  const listBeers= document.querySelector('#listBeers');
+  const commentSection = document.querySelector('#comments');
 
-const renderDetail=() => {
+  const renderPageHome = () => {
+    add(imageHome);
+    add(form);
+    add(listBeers);
+    remove(detailBeer);
+    remove(commentSection);
+}
+
+const renderPageDetail=() => {
     remove(imageHome);
     remove(form);
+    remove(listBeers);
+    add(detailBeer);
     add(commentSection)
 }
 
-const renderHome = () => {
-    add(imageHome);
-    add(form);
-    remove(commentSection)
-}
 
-export {renderDetail, renderHome}
+
+export {renderPageDetail, renderPageHome}

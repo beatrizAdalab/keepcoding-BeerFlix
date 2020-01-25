@@ -1,71 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
   <title>BeerFlix</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
-    integrity="sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.12.0/css/all.css'
+    integrity='sha384-REHJTs1r2ErKBuJB0fCK99gCYsVjwxHrSU0N7I1zl9vZbggVJXRMsv/sLlOAGb4M' crossorigin='anonymous'>
   <!-- styles -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+    integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous'>
+  <link rel='stylesheet' href='/src/css/styles.css'>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-color-primary d-flex justify-content-center">
-      <a href="/" class="text-dark text-decoration-none"><h1 class="navbar-brand ">BeerFlix</h1></a>
+    <nav class='navbar navbar-expand-lg bg-color-primary d-flex justify-content-center'>
+      <a href='/' class='text-dark text-decoration-none'>
+        <h1 class='navbar-brand '>BeerFlix</h1>
+      </a>
     </nav>
-    <div class="image-home d-flex align-items-center">
+    <div class='image-home d-flex align-items-center'>
       <picture>
-        <source srcset="/src/images/beer-home-laptop.jpg" media="(min-width: 1280px)">
-        <source srcset="/src/images/beer-home-tablet.jpg" media="(min-width: 767px)">
-        <img src="/src/images/beer-home-mobile.jpg" class="img-fluid" alt="beer on the table">
-    </picture>
+        <source srcset='/src/images/beer-home-laptop.jpg' media='(min-width: 1280px)'>
+        <source srcset='/src/images/beer-home-tablet.jpg' media='(min-width: 767px)'>
+        <img src='/src/images/beer-home-mobile.jpg' class='img-fluid' alt='beer on the table'>
+      </picture>
     </div>
   </header>
   <main>
     <!-- form -->
-    <section id="formSection">
-      <div class="container py-4">
-        <form id="search-form" novalidate>
-          <div class="form-group">
-            <label for="input-text-beer" class="mb-1">What beer are you thinking? <span class="text-muted"> *required</span></label>
-            
-            <input type="text" class="form-control" id="input-text-beer" required placeholder="search your beer">
+    <section id='formSection'>
+      <div class='container py-4'>
+        <form id='search-form' novalidate>
+          <div class='form-group'>
+            <label for='input-text-beer' class='mb-1'>What beer are you thinking? <span class='text-muted'>
+                *required</span></label>
+
+            <input type='text' class='form-control' id='input-text-beer' required placeholder='search your beer'>
           </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="input-starting-date" class="mb-1">Starting date</label>
-              <input type="month" class="form-control" id="input-starting-date">
+          <div class='form-row'>
+            <div class='form-group col-md-6'>
+              <label for='input-starting-date' class='mb-1'>Starting date</label>
+              <input type='month' class='form-control' id='input-starting-date'>
             </div>
-            <div class="form-group col-md-6">
-              <label for="input-latest-date" class="mb-1">Latest date</label>
-              <input type="month" class="form-control" id="input-latest-date">
+            <div class='form-group col-md-6'>
+              <label for='input-latest-date' class='mb-1'>Latest date</label>
+              <input type='month' class='form-control' id='input-latest-date'>
             </div>
           </div>
-          <div class="d-flex justify-content-center py-4">
-            <button type="submit" class="btn btn-search btn-lg btn-block">Search</button>
+          <div class='d-flex justify-content-center py-4'>
+            <button type='submit' class='btn btn-search btn-lg btn-block'>Search</button>
           </div>
         </form>
     </section>
-    <!-- card-->
-    <section id="showSection" class="bg-light">
+    <section id='listBeers' class='bg-light'>
     </section>
-    <section id='commentSection'>
+    <section id='detailBeer'>
+    </section>
+    <section id='comments' class='container'>
+      <h2 class='tittle-comments font-weight-bold p-3 color-secondary'>Comments:</h2>
+
+
+      <form id='comment-form' novalidate>
+        <div class='form-group'>
+          <label for='input-text-comment' class='pb-2'>What do you think? <span class='text-muted'>
+              *required</span></label>
+          <textarea maxlength='300' rows='4' class='form-control' id='input-text-comment' required
+            placeholder='write your comment'></textarea>
+        </div>
+        <div class='d-flex justify-content-center py-2'>
+          <button type='submit' id='add-comment' class='btn btn-search'>Add comment</button>
+        </div>
+      </form>
+
+      <div class='' id='last-comment'>
+      </div>
+
+      <div class='cards-comments py-4'>
+      </div>
     </section>
 
   </main>
 
-  <footer>
+  <footer class='text-white bg-dark text-center font-weight-light p-2'>
+    <p class="footer__copyright">Copyright ©2020. FlixBeer All rights reserved.</p>
   </footer>
   <!-- script -->
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-  <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-  <script type="module" src="/src/js/routes.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js'></script>
+  <script src='https://cdn.rawgit.com/visionmedia/page.js/master/page.js'></script>
+  <script type='module' src='/src/js/routes.js'></script>
   <!-- script end-->
 </body>
 

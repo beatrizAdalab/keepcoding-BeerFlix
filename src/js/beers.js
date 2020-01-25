@@ -4,11 +4,11 @@ const {getBeers} = api();
 
 const templateBeer = beer => {
     return `
-    <div class="col mb-4">
+    <div class="col mb-2">
             <div class="card mb-3" >
                 <div class="row no-gutters">
                     <div class="col-md-3">
-                        <div class="card-container-img d-flex align-items-center justify-content-center">
+                        <div class="card-container-img pt-3 d-flex align-items-center justify-content-center">
                             <img src=${beer.image} class="card-img" alt="${beer.name}">
                         </div>
                     </div>
@@ -20,7 +20,7 @@ const templateBeer = beer => {
                         </div>
                     </div>
                 </div>
-                <div class="card-footer d-flex justify-content-between">
+                <div class="card-footer bg-white d-flex justify-content-between">
                 <div class="d-flex">
                     <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-thumbs-up"></i> ${beer.likes} </i></small></p>
                     <p class="card-text mr-3"><small class="text-muted"><i class="fas fa-comment"></i> ${beer.comments.length} </small></p>
@@ -59,7 +59,7 @@ const renderBeers = (element, items) => {
 
     element.innerHTML = `
     <div class="container container-beers py-4 ">  
-        <div class="row row-cols-1 row-cols-lg-2">
+        <div class="row row-cols-1">
             ${htmlBeers}
         </div>
       </div>
@@ -69,10 +69,9 @@ const renderBeers = (element, items) => {
 
 
 export const renderHomeBeers = async (text)=>{
-    const containerBeers = document.querySelector('#showSection');
+    const containerBeers = document.querySelector('#listBeers');
     containerBeers.innerHTML = `loading...`;
 
-    //se introduce dentro del elemento, en este caso card-deck
     try {
         const beers = await getBeers(text);
         console.log(beers)

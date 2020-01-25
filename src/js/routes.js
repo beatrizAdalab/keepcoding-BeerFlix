@@ -1,24 +1,22 @@
 import renderHomeBeers from './beers.js';
-import renderBeerDetail from './detail.js'
+import renderBeer from './beer.js';
 import { STORAGE_TYPE } from './form.js';
-import {renderDetail, renderHome} from './ui.js';
-
-
+import {renderPageDetail, renderPageHome} from './ui.js';
 
 
 
 
 page('/', () => {
   console.log('Route /');
-  renderHome()
+  renderPageHome()
   renderHomeBeers();
 });
 
 page('/detail/:id', (ctx) => {
   console.log('Detail');
   const { params: { id } } = ctx;
-  renderDetail();
-  renderBeerDetail(id);
+  renderPageDetail();
+  renderBeer(id);
 });
 
 

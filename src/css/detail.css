@@ -1,10 +1,10 @@
 .detail-container-view{
-    height: 50vh;
+    height: 100%;
 }
 
 .detail-container-image{
-    width: 60%;
-    height: 90%;
+    width: 200px;
+    height: 300px;
 }
 
 .detail-tittle{
