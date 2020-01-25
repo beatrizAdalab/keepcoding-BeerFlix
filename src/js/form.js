@@ -2,7 +2,6 @@ import renderHomeBeers from './beers.js';
 import storage from './storage.js';
 const { setItem, getItem } = storage('lStorage');
 
-
 export const INPUT_STORAGE_ID = 'search-beers';
 export const STORAGE_TYPE = 'lStorage';
 
@@ -10,8 +9,6 @@ const searchForm = document.querySelector('#search-form');
 const searchInputText = document.querySelector('#input-text-beer');
 const searchInputStarting = document.querySelector('#input-starting-date');
 const searchInputFinish = document.querySelector('#input-latest-date');
-
-
 
 const initialForm = () => {
     const dataStorage = JSON.parse(getItem('search-beers'));
@@ -45,7 +42,6 @@ const getDates = (dateStart, dateEnd) => {
 };
 
 
-
 const validatedDate = (date) => {
     const { yearStart, yearEnd, monthStart, monthEnd } = date;
     console.log(date)
@@ -61,7 +57,7 @@ const validatedDate = (date) => {
 
 initialForm();
 
-//consigeme las fechas
+
 let dateUser = (getDates(searchInputStarting, searchInputFinish));
 
 
@@ -72,7 +68,6 @@ searchForm.addEventListener('submit', evt => {
     if (!searchInputText.validity.valid) {
         searchInputText.classList.add('is-invalid')
     } else if(!validatedDate(dateUser)){
-        console.log('validacion fecha',validatedDate(dateUser))
         alert('The end date must be greater than the start date')
     } else {
         const datesStorage = {
