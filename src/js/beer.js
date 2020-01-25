@@ -5,14 +5,9 @@ import renderComments from './comments.js'
 
 const { getBeerDetail } = api();
 
-
-
-
-
 const renderBeer = async id => {
     try {
         const beer = await getBeerDetail(id);
-        console.log(beer)
         renderDetail(beer, id);
         renderComments(beer, id)
 

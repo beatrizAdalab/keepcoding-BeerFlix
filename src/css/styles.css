@@ -7,7 +7,6 @@
 @import "card.css";
 
 
-
 picture{
     width: 100%;
 }
@@ -19,8 +18,6 @@ picture{
 .hidden {
     display: none !important;
 }
-
-
 
 /* COLORS */
 .bg-color-primary{

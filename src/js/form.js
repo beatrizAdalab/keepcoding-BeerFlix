@@ -1,10 +1,10 @@
 import renderHomeBeers from './beers.js';
 import storage from './storage.js';
+const { setItem, getItem } = storage('lStorage');
 
-export const INPUT_STORAGE_ID = 'navbar-input';
+
+export const INPUT_STORAGE_ID = 'search-beers';
 export const STORAGE_TYPE = 'lStorage';
-
-const { setItem, getItem } = storage(STORAGE_TYPE);
 
 const searchForm = document.querySelector('#search-form');
 const searchInputText = document.querySelector('#input-text-beer');
@@ -13,16 +13,27 @@ const searchInputFinish = document.querySelector('#input-latest-date');
 
 
 
+const initialForm = () => {
+    const dataStorage = JSON.parse(getItem('search-beers'));
+    if (dataStorage) {
+        const { text, dateStart, dateFinish } = dataStorage;
+        searchInputText.value = text;
+        searchInputStarting.value = dateStart;
+        searchInputFinish.value = dateFinish;
+    }
+};
+
 const resetForm = () => {
     searchInputText.value = '';
     searchInputStarting.value = '';
     searchInputFinish.value = '';
-}
+};
 
-
+//invalided is eliminated when the status of the input varies
 searchInputText.addEventListener('keydown', evt => {
     evt.target.classList.remove('is-invalid');
 });
+
 
 const getDates = (dateStart, dateEnd) => {
     return {
@@ -31,40 +42,49 @@ const getDates = (dateStart, dateEnd) => {
         monthStart: parseInt(dateStart.value.slice(-2)),
         monthEnd: parseInt(dateEnd.value.slice(-2)),
     }
+};
+
+
+
+const validatedDate = (date) => {
+    const { yearStart, yearEnd, monthStart, monthEnd } = date;
+    console.log(date)
+
+    if (yearEnd < yearStart) {
+        return false
+    } else if (yearEnd === yearStart && monthStart > monthEnd) {
+        return false
+    } else {
+        return true
+    }
 }
 
+initialForm();
 
-// const validatedDate = (date) => {
-//     const { yearStart, yearEnd, monthStart, monthEnd } = date;
-
-//     if (yearEnd >= yearStart) {
-//         if (monthStart < monthEnd) {
-//             return true
-//         } else {
-//             return false
-//         }
-//     }else {
-//         return false
-//     }
-// }
+//consigeme las fechas
+let dateUser = (getDates(searchInputStarting, searchInputFinish));
 
 
 searchForm.addEventListener('submit', evt => {
     evt.preventDefault();
-    const date = getDates(searchInputStarting, searchInputFinish);
+    dateUser = (getDates(searchInputStarting, searchInputFinish));
 
     if (!searchInputText.validity.valid) {
         searchInputText.classList.add('is-invalid')
-    }
-    // else if (!validatedDate(date)) {
-    //     return alert('Upss! the last date must be greater than the start date')
-    // }
-    else {
-        // Pintar shows con el filtro!
+    } else if(!validatedDate(dateUser)){
+        console.log('validacion fecha',validatedDate(dateUser))
+        alert('The end date must be greater than the start date')
+    } else {
+        const datesStorage = {
+            text: searchInputText.value,
+            dateStart: searchInputStarting.value,
+            dateFinish: searchInputFinish.value
+        }
+        setItem(INPUT_STORAGE_ID, JSON.stringify(datesStorage));
         renderHomeBeers(searchInputText.value);
-        // almacenar en localstorage o cookie storage
-        setItem(INPUT_STORAGE_ID, searchInputText.value);
-        resetForm()
+        //resetForm()
     }
 });
 
+
+export default {dateUser}

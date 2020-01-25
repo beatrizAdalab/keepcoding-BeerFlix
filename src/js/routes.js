@@ -1,10 +1,7 @@
 import renderHomeBeers from './beers.js';
 import renderBeer from './beer.js';
-import { STORAGE_TYPE } from './form.js';
+import INPUT_STORAGE_ID from './form.js'
 import {renderPageDetail, renderPageHome} from './ui.js';
-
-
-
 
 page('/', () => {
   console.log('Route /');

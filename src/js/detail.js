@@ -1,4 +1,5 @@
 import api from './api.js';
+import {showCommentsForm} from './ui.js';
 
 const { addLike } = api();
 
@@ -37,24 +38,24 @@ const templateBeerDetail = (beer) => {
             </div>
         </div>
     </div>`
-}
+};
 
 const handlerBtnLike = async (id) => {
     const likeIcon = document.querySelector('.fa-thumbs-up');
     likeIcon.classList.add('color-primary')
     await addLike(id);
-}
-
+};
 
 const renderDetail = (item, id) => {
     const containerBeers = document.querySelector('#detailBeer');
     containerBeers.innerHTML = templateBeerDetail(item);
 
+    showCommentsForm();
+
     const btnLike = document.querySelector('.btn-like');
     btnLike.addEventListener('click', () => {
         handlerBtnLike(id)
     });
-}
-
+};
 
 export default renderDetail;

@@ -31,13 +31,17 @@ const handlerAddComment = async (id, text) => {
 const renderComments = (beer, id) => {
 
     const formAddComment = document.querySelector('#comment-form');
-    const lastComment = document.querySelector('#last-comment');
+    const inputComment = document.querySelector('#input-text-comment');
 
     formAddComment.addEventListener('submit', async (evt) => {
         evt.preventDefault();
-        const userComment = document.querySelector('#input-text-comment').value;
-        const newsComments = await handlerAddComment(id, userComment);
-        templateAllComments(newsComments)
+        if (!inputComment.validity.valid) {
+            inputComment.classList.add('is-invalid')
+        } else {
+            const userComment = document.querySelector('#input-text-comment').value;
+            const newsComments = await handlerAddComment(id, userComment);
+            templateAllComments(newsComments)
+        }
     })
 
     const allComments = beer.comments;
