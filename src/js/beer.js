@@ -1,6 +1,7 @@
 import api from './api.js';
-import renderDetail from './detail.js'
+import renderDetail from './detail.js';
 import renderComments from './comments.js'
+
 
 const { getBeerDetail } = api();
 
@@ -13,7 +14,7 @@ const loading = (elementDetail) => {
 </div>`;
 };
 
-const renderBeer = async id => {
+const renderBeer = async (id) => {
     const containerBeers = document.querySelector('#detailBeer');
     loading(containerBeers);
     try {
@@ -22,7 +23,7 @@ const renderBeer = async id => {
         renderComments(beer, id)
     } catch (err) {
         console.error(err);
-    }
+    }  
 };
 
 export default renderBeer;

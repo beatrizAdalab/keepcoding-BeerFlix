@@ -1,5 +1,6 @@
 import api from './api.js';
 const { addLike } = api();
+import renderComments from './comments.js'
 
 const templateBeerDetail = (beer) => {
     return `

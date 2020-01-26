@@ -1,6 +1,5 @@
 import api from './api.js';
 const { addComment } = api();
-import {showCommentsForm} from './ui.js';
 
 const templateComment = (item) => {
     return `
@@ -12,6 +11,26 @@ const templateComment = (item) => {
         </div>
     </div>`
 };
+
+
+const showCommentsForm = () => {
+const commentSection = document.querySelector('#comments');
+  commentSection.innerHTML = `
+  <h2 class='tittle-comments font-weight-bold p-3 color-secondary'>Comments:</h2>
+      <form id='comment-form' novalidate>
+        <div class='form-group'>
+          <label for='input-text-comment' class='pb-2'>What do you think? <span class='text-muted'>
+              *required</span></label>
+          <textarea maxlength='300' rows='4' class='form-control' id='input-text-comment' required
+            placeholder='write your comment'></textarea>
+        </div>
+        <div class='d-flex justify-content-center py-2'>
+          <button type='submit' id='add-comment' class='btn btn-search'>Add comment</button>
+        </div>
+      </form>
+      <div class='cards-comments py-4'>
+      </div>
+  `};
 
 const templateAllComments = (comments) => {
     const SectionComments = document.querySelector('.cards-comments');

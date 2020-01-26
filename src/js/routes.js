@@ -1,6 +1,7 @@
 import renderHomeBeers from './beers.js';
 import renderBeer from './beer.js';
 import {renderPageDetail, renderPageHome} from './ui.js';
+import renderComments from './comments.js'
 
 page('/', () => {
   console.log('Route /');

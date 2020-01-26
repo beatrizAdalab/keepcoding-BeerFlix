@@ -19,6 +19,10 @@ picture{
     display: none !important;
 }
 
+#listBeers{
+    min-height: 50vh;
+}
+
 /* COLORS */
 .bg-color-primary{
     background-color: var(--main-color);
