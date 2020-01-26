@@ -1,5 +1,5 @@
 # FlixBeer
-##Briefing
+## Briefing
 _Acabamos de cerrar un contrato con uno de nuestros mejores clientes. Dicho cliente, tiene como idea de negocio, revolucionar el mundo del consumo de cerveza dando un acceso rápido a los mejores productos del mercado._
  
 _Para ello tiene una gran base de datos la cual es proporcionada por un API de un proveedor externo.
