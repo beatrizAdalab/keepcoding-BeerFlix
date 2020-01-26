@@ -27,7 +27,6 @@ const showCommentsForm = () => {
           <button type='submit' id='add-comment' class='btn btn-search'>Add comment</button>
         </div>
       </form>
-
       <div class='cards-comments py-4'>
       </div>
   `};
@@ -48,7 +47,5 @@ const renderPageDetail = () => {
   add(detailBeer);
   add(commentSection)
 }
-
-
 
 export { renderPageDetail, renderPageHome, showCommentsForm }

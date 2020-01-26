@@ -77,7 +77,8 @@ const api = (apiURL = 'https://beerflix-api.herokuapp.com/api/v1') => {
             'X-API-KEY': API_KEY
           }
         })
-        console.log(response)
+        return response
+        //console.log(response)
         if (!response.ok) {
           throw new Error('Error create comment')
         }

@@ -1,6 +1,5 @@
 import renderHomeBeers from './beers.js';
 import renderBeer from './beer.js';
-import INPUT_STORAGE_ID from './form.js'
 import {renderPageDetail, renderPageHome} from './ui.js';
 
 page('/', () => {
@@ -15,6 +14,5 @@ page('/detail/:id', (ctx) => {
   renderPageDetail();
   renderBeer(id);
 });
-
 
 page();

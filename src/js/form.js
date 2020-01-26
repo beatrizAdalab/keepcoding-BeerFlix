@@ -55,14 +55,17 @@ const validatedDate = (date) => {
 initialForm();
 let dateUser = (getDates(searchInputStarting, searchInputFinish));
 
+
 searchForm.addEventListener('submit', evt => {
   evt.preventDefault();
   dateUser = (getDates(searchInputStarting, searchInputFinish));
+  //Both dates must be filled or empty
+  const bothDates = searchInputFinish.value && !searchInputStarting.value? false: !searchInputFinish.value && searchInputStarting.value?false: true;
 
   if (!searchInputText.validity.valid) {
     searchInputText.classList.add('is-invalid')
-  } else if(!validatedDate(dateUser)){
-    alert('The end date must be greater than the start date')
+  } else if(!bothDates || !validatedDate(dateUser) ){
+    alert('the last date must be equal to or greater than the start date')
   } else {
     const datesStorage = {
       text: searchInputText.value,
@@ -70,7 +73,7 @@ searchForm.addEventListener('submit', evt => {
       dateFinish: searchInputFinish.value
     }
     setItem(INPUT_STORAGE_ID, JSON.stringify(datesStorage));
-    renderHomeBeers(searchInputText.value);
+    renderHomeBeers(searchInputText.value, dateUser);
     //resetForm()
   }
 });

@@ -1,5 +1,6 @@
 import api from './api.js';
 const { addComment } = api();
+import {showCommentsForm} from './ui.js';
 
 const templateComment = (item) => {
     return `
@@ -17,7 +18,7 @@ const templateAllComments = (comments) => {
     const htmlComments = comments.map((comment) => {
         return templateComment(comment);
     }).join('');
-
+    
     SectionComments.innerHTML = ` <div> ${htmlComments} </div>`;
 };
 
@@ -28,6 +29,7 @@ const handlerAddComment = async (id, text) => {
 
 
 const renderComments = (beer, id) => {
+    showCommentsForm();
     const formAddComment = document.querySelector('#comment-form');
     const inputComment = document.querySelector('#input-text-comment');
 

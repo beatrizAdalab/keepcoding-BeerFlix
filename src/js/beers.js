@@ -35,28 +35,33 @@ const templateBeer = beer => {
     `
 };
 
-console.log('dataUser',dateUser)
 const filterBeerDate = (items, dates) => {
     const { yearStart, yearEnd, monthStart, monthEnd } = dates;
-
+    
     const beerPassFilterDate = items.map(item => {
+        if (yearStart && yearEnd && monthStart && monthEnd){
+
         const dateBeer = item.firstBrewed;
         const yearBeer = parseInt(dateBeer.slice(-4));
         const monthBeer = parseInt(dateBeer.slice(0, 2));
 
-        if (yearBeer >= yearStart && yearBeer <= yearEnd) {
+            if (yearBeer >= yearStart && yearBeer <= yearEnd) {
+                return item
+            } else if (
+                yearBeer == yearStart && monthBeer >= monthStart
+            ) {
+                return item
+            } else if (yearBeer == yearEnd && monthBeer <= monthEnd) {
+                return item
+            } else {
+                return false
+            }
+        } 
+        else {
             return item
-        } else if (
-            yearBeer == yearStart && monthBeer >= monthStart
-        ) {
-            return item
-        } else if (yearBeer == yearEnd && monthBeer <= monthEnd) {
-            return item
-        } else {
-            return false
         }
     });
-    return beerPassFilterDate;
+    return beerPassFilterDate
 };
 
 const renderHtmlBeers = (element, items) => {
@@ -97,25 +102,21 @@ const loading = (element) => {
 </div>`
 };
 
-const renderHomeBeers = async (text) => {
+const renderHomeBeers = async (text, dates = dateUser) => {
     const dataStorage = JSON.parse(getItem('search-beers'));
     const containerBeers = document.querySelector('#listBeers');
-    loading(containerBeers)
-
-    console.log('datastorage', dataStorage)
+    loading(containerBeers);
 
     try {
         if (dataStorage) {
             const beers = await getBeers(dataStorage.text);
-            const beerFilteredDate = filterBeerDate(beers, dateUser)
+            const beerFilteredDate = filterBeerDate(beers, dates)
             renderHtmlBeers(containerBeers, beerFilteredDate)
 
         } else {
             const beers = await getBeers(text);
-            const beerFilteredDate = filterBeerDate(beers, dateUser);
-            renderHtmlBeers(containerBeers, beerFilteredDate)
+            renderHtmlBeers(containerBeers, beers)
         }
-
     } catch (err) {
         console.log(err)
     }
