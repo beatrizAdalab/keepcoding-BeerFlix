@@ -1,10 +1,9 @@
 import api from './api.js';
-import dateUser from './form.js'
+import dateUser from './form.js';
 const { getBeers } = api();
 
 import storage from './storage.js';
 const { getItem } = storage('lStorage');
-
 
 const templateBeer = beer => {
     return `
@@ -32,16 +31,16 @@ const templateBeer = beer => {
                 <a href='/detail/${beer.beerId}' class='card-link color-secondary'>More information</a>
               </div>
             </div>
-    </div>
-    `;
+    </div> 
+    `
 };
 
-//filtramos cervezas
+console.log('dataUser',dateUser)
 const filterBeerDate = (items, dates) => {
-    const { yearStart, yearEnd, monthStart, monthEnd } = dates.dateUser;
+    const { yearStart, yearEnd, monthStart, monthEnd } = dates;
 
     const beerPassFilterDate = items.map(item => {
-        const dateBeer = item.firstBrewed
+        const dateBeer = item.firstBrewed;
         const yearBeer = parseInt(dateBeer.slice(-4));
         const monthBeer = parseInt(dateBeer.slice(0, 2));
 
@@ -58,66 +57,59 @@ const filterBeerDate = (items, dates) => {
         }
     });
     return beerPassFilterDate;
-}
-
-
-
-
+};
 
 const renderHtmlBeers = (element, items) => {
     const htmlBeers = items.map(item => {
-        if(item){
+        if (item) {
             return templateBeer(item)
-        }else {
+        } else {
             return ''
         }
     }).join('');
 
-    if(htmlBeers.length > 0){
-        element.innerHTML= `
+    if (htmlBeers.length > 0) {
+        element.innerHTML = `
         <div class='container container-beers py-4'>  
             <div class='row row-cols-1'>
             ${htmlBeers}
              </div>
         </div>`
     } else {
-        element.innerHTML= `
+        element.innerHTML = `
         <div class='container container-beers py-4'>  
             <div class='row row-cols-1'>
                 <div class = 'd-flex justify-content-center align-items-center p-4'>
                     <p class='color-primary-dark'>Oops! there is no beer, try again...</p>
                 </div>
             </div>
-        </div>`
+        </div>
+        `
     }
 };
 
-
-
 const loading = (element) => {
-    element.innerHTML=`<div class='d-flex justify-content-center p-5'>
+    element.innerHTML = `<div class='d-flex justify-content-center p-5'>
     <div class='spinner-grow text-info' role='status'>
         <span class='sr-only'>Loading...</span>
     </div>
     <span class='color-primary-dark px-5'> Let's go for the beers...</span>
 </div>`
-}
+};
 
-
-
-export const renderHomeBeers = async (text) => {
+const renderHomeBeers = async (text) => {
     const dataStorage = JSON.parse(getItem('search-beers'));
     const containerBeers = document.querySelector('#listBeers');
     loading(containerBeers)
 
-    console.log('datastorage',dataStorage)
+    console.log('datastorage', dataStorage)
 
     try {
         if (dataStorage) {
             const beers = await getBeers(dataStorage.text);
-            const beerFilteredDate= filterBeerDate(beers, dateUser)
+            const beerFilteredDate = filterBeerDate(beers, dateUser)
             renderHtmlBeers(containerBeers, beerFilteredDate)
-            
+
         } else {
             const beers = await getBeers(text);
             const beerFilteredDate = filterBeerDate(beers, dateUser);

@@ -49,7 +49,7 @@ const handlerBtnLike = async (id) => {
 const renderDetail = (item, id) => {
     const containerBeers = document.querySelector('#detailBeer');
     containerBeers.innerHTML = templateBeerDetail(item);
-
+    
     showCommentsForm();
 
     const btnLike = document.querySelector('.btn-like');

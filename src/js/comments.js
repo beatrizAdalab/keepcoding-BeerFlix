@@ -1,8 +1,7 @@
 import api from './api.js';
-
 const { addComment } = api();
 
-const templateBeerComment = (item) => {
+const templateComment = (item) => {
     return `
     <div class='card mb-3';'>
         <div class='card-body text-dark'>
@@ -16,7 +15,7 @@ const templateBeerComment = (item) => {
 const templateAllComments = (comments) => {
     const SectionComments = document.querySelector('.cards-comments');
     const htmlComments = comments.map((comment) => {
-        return templateBeerComment(comment);
+        return templateComment(comment);
     }).join('');
 
     SectionComments.innerHTML = ` <div> ${htmlComments} </div>`;
@@ -29,7 +28,6 @@ const handlerAddComment = async (id, text) => {
 
 
 const renderComments = (beer, id) => {
-
     const formAddComment = document.querySelector('#comment-form');
     const inputComment = document.querySelector('#input-text-comment');
 
@@ -42,11 +40,10 @@ const renderComments = (beer, id) => {
             const newsComments = await handlerAddComment(id, userComment);
             templateAllComments(newsComments)
         }
-    })
+    });
 
     const allComments = beer.comments;
     templateAllComments(allComments)
 };
-
 
 export default renderComments;
