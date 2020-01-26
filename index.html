@@ -23,9 +23,22 @@
     </nav>
     <div class='image-home d-flex align-items-center'>
       <picture>
-        <source srcset='/src/images/beer-home-laptop.jpg' media='(min-width: 1280px)'>
-        <source srcset='/src/images/beer-home-tablet.jpg' media='(min-width: 767px)'>
-        <img src='/src/images/beer-home-mobile.jpg' class='img-fluid' alt='beer on the table'>
+        <source 
+        srcset='/src/images/beer-home-laptop.jpg' 
+        media='(min-width: 1280px)'>
+        <source 
+        srcset='
+        /src/images/beer-home-tablet.jpg 767w,
+        /src/images/beer-home-laptop.jpg 1280w'  
+        media='(min-width: 767px)'
+        >
+        <source 
+        srcset='
+        /src/images/beer-home-tablet.jpg 767w,
+        /src/images/beer-home-mobile.jpg 320w'  
+        media='(max-width: 767px)'
+        >
+        <img src='/src/images/beer-home-table.jpg' class='img-fluid' alt='beer on the table'>
       </picture>
     </div>
   </header>
