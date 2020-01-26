@@ -1,4 +1,7 @@
 # FlixBeer
+
+Este buscador de cervezas es el ejercicio práctico del módulo javaScript avanzado del Bootscamp Full Stack (Keepcoding). 
+
 ## Briefing
 _Acabamos de cerrar un contrato con uno de nuestros mejores clientes. Dicho cliente, tiene como idea de negocio, revolucionar el mundo del consumo de cerveza dando un acceso rápido a los mejores productos del mercado._
  
@@ -13,7 +16,7 @@ Las historias de usuario que contempla el cliente que tienen que ser necesarias 
 5. Un usuario podrá navegar al detalle de una cerveza. Dicho detalle tiene que tener más información del API de nuestro proveedor que en el listado.
 6. En dicho detalle el usuario tiene que tener la posibilidad de guardar un comentario acerca de ese producto o añadir likes a dicho producto. El cliente para la primera fase quiere al menos una de esas funcionalidades. Si es posible, tener ambas seria un plus para nuestros usuarios.
 
-##Notas para el desarrollador
+## Notas para el desarrollador
 Nuestro lead developer nos ha dado estas especificaciones para el proyecto:
 
 1. El proyecto es necesario que se realice sin framework (Vue, Angular, Ember, Polymer, Backbone etc...) y sin librerías como React y jQuery.
@@ -33,10 +36,13 @@ Es necesario tener instalado node
 
 ### Instalación 🔧
 
+En primer lugar instalamos las dependenciascon el siguiente comando:
 
 ```
 npm install
 ```
+después lo levantamos con el siguiente comando:
+
 ```
 npm start
 ```
