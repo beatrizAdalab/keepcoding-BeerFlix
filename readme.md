@@ -1,6 +1,6 @@
 # FlixBeer
 
-Este buscador de cervezas es el ejercicio práctico del módulo javaScript avanzado del Bootscamp Full Stack (Keepcoding). 
+Este buscador de cervezas es el ejercicio práctico del módulo javaScript el Bootscamp Full Stack (Keepcoding). 
 
 ## Briefing
 _Acabamos de cerrar un contrato con uno de nuestros mejores clientes. Dicho cliente, tiene como idea de negocio, revolucionar el mundo del consumo de cerveza dando un acceso rápido a los mejores productos del mercado._
