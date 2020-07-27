@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/beatrizAdalab/keepcoding-BeerFlix/issues"
   },
-  "homepage": "https://github.com/beatrizAdalab/keepcoding-BeerFlix#readme",
+  "homepage": "./"
   "dependencies": {
     "express": "^4.17.1"
   },
